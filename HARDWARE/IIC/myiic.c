@@ -20,7 +20,7 @@ void IIC_Init(void)
 	RCC_APB2PeriphClockCmd(	RCC_APB2Periph_GPIOB, ENABLE );	//使能GPIOB时钟
 	   
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP |GPIO_Mode_IPU ;   //推挽输出&上拉
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP ;   //推挽输出&上拉
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 	GPIO_SetBits(GPIOB,GPIO_Pin_6|GPIO_Pin_7); 	//PB6,PB7 输出高
@@ -94,6 +94,19 @@ void IIC_NAck(void)
 //返回从机有无应答
 //1，有应答
 //0，无应答			  
+
+void SCL_IN(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;
+	
+	   
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU ;   //推挽输出&上拉
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_SetBits(GPIOB,GPIO_Pin_6); 	//PB6
+}
+
 void IIC_Send_Byte(u8 txd)
 {                        
     u8 t;   
@@ -163,7 +176,22 @@ void KS103_WriteOneByte(u8 address,u8 reg,u8 command)
 }
 
 
-
+u8 KS103_Read_DATA(u8 address)
+{
+	u16 temp=0x00;
+	IIC_Start();
+	IIC_Send_Byte(address +1);
+	IIC_Wait_Ack();
+	delay_us(100);
+	temp= IIC_Read_Byte(0);
+	temp <<= 8;
+	IIC_Send_Byte(address +1);
+	IIC_Wait_Ack();
+	delay_us(100);
+	temp +=IIC_Read_Byte(0);
+	return temp;
+	
+}
 
 
 

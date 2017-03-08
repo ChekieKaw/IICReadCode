@@ -16,8 +16,8 @@
 
 //IO方向设置
  
-#define SDA_IN()  {GPIOB->CRL&=0X0FFFFFFF;GPIOB->CRL|=(u32)8<<28;}
-#define SDA_OUT() {GPIOB->CRL&=0X0FFFFFFF;GPIOB->CRL|=(u32)3<<28;}
+#define SDA_IN();  {GPIOB->CRL&=0X0FFFFFFF;GPIOB->CRL|=(u32)8<<28;}
+#define SDA_OUT(); {GPIOB->CRL&=0X0FFFFFFF;GPIOB->CRL|=(u32)3<<28;}
 
 //IO操作函数	 
 #define IIC_SCL    PBout(6) //SCL
@@ -39,6 +39,8 @@ void IIC_Write_One_Byte(u8 daddr,u8 addr,u8 data);
 u8 IIC_Read_One_Byte(u8 daddr,u8 addr);	  
 u8 KS103_ReadOneByte(u8 address, u8 reg);
 void KS103_WriteOneByte(u8 address,u8 reg,u8 command);
+void SCL_IN(void);
+u8 KS103_Read_DATA(u8 address);
 extern u8 temp;
 #endif
 
