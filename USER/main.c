@@ -35,7 +35,7 @@ int main()
 	
 	while(1)
 	{
-	u16 read_data_ks103;
+	u16 read_data_ks103=0x00;
 		
 		LED1=1;
 		LED0=1;
@@ -45,7 +45,9 @@ int main()
 	
 		delay_ms(100);
 		
-			read_data_ks103=KS103_Read_DATA(0xd0);
+			read_data_ks103=KS103_ReadOneByte(0xd0,0x02);
+			read_data_ks103<<=8;
+			read_data_ks103 += KS103_ReadOneByte(0xd0,0x03);
 			
 			
 			printf("Distance on 0xd0 is %d mm\n",read_data_ks103);//¼à²â´úÂë¡£

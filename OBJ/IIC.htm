@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\IIC.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\IIC.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Mar 08 23:25:29 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Thu Mar 09 22:37:29 2017
 <BR><P>
 <H3>Maximum Stack Usage =        372 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -283,7 +283,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 184 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[69]"></a>main</STRONG> (Thumb, 208 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = main &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -292,7 +292,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_WriteOneByte
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Init
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
@@ -363,9 +363,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteOneByte
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_WriteOneByte
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 </UL>
 
 <P><STRONG><a name="[7c]"></a>IIC_Stop</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, myiic.o(.text))
@@ -375,9 +375,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteOneByte
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_WriteOneByte
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 </UL>
 
 <P><STRONG><a name="[7d]"></a>IIC_Wait_Ack</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, myiic.o(.text))
@@ -388,9 +388,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteOneByte
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_WriteOneByte
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 </UL>
 
 <P><STRONG><a name="[7e]"></a>IIC_Ack</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, myiic.o(.text))
@@ -421,9 +421,9 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_WriteOneByte
 <LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_WriteOneByte
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 </UL>
 
 <P><STRONG><a name="[82]"></a>IIC_Read_Byte</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, myiic.o(.text))
@@ -434,17 +434,21 @@ Global Symbols
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AT24CXX_ReadOneByte
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 </UL>
 
-<P><STRONG><a name="[83]"></a>KS103_ReadOneByte</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, myiic.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<P><STRONG><a name="[74]"></a>KS103_ReadOneByte</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, myiic.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = KS103_ReadOneByte &rArr; IIC_Read_Byte &rArr; IIC_NAck
+</UL>
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[73]"></a>KS103_WriteOneByte</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, myiic.o(.text))
@@ -458,16 +462,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[74]"></a>KS103_Read_DATA</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, myiic.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = KS103_Read_DATA &rArr; IIC_Read_Byte &rArr; IIC_NAck
-</UL>
-<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
+<P><STRONG><a name="[83]"></a>KS103_Read_DATA</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, myiic.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
-</UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[84]"></a>AT24CXX_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, 24cxx.o(.text), UNUSED)
@@ -534,7 +534,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6]"></a>delay_us</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
+<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Read_Byte
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Send_Byte
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_NAck
@@ -542,7 +542,7 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Wait_Ack
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Stop
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_Start
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_Read_DATA
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KS103_ReadOneByte
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usmart_config.o(.data)
 </UL>

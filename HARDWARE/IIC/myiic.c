@@ -156,7 +156,7 @@ u8 KS103_ReadOneByte(u8 address, u8 reg)
 	IIC_Send_Byte(address + 1);           //进入接收模式			   
 	IIC_Wait_Ack();	 
 
-	delay_us(50);	   //增加此代码通信成功！！！
+	delay_us(100);	   //增加此代码通信成功！！！
     temp=IIC_Read_Byte(0);	  //读寄存器3	   
     IIC_Stop();//产生一个停止条件	    
 	return temp;
